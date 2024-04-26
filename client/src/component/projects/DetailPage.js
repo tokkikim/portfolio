@@ -11,7 +11,7 @@ const DetailPage = ({ close }) => {
             <h2 className=' row-start-2 col-start-1 col-end-5 py-2 text-2xl tracking-tight font-semibold'>
               포트폴리오 프로젝트
             </h2>
-            <button className='col-start-12 gittest' onClick={close}>
+            <button className='col-start-12' onClick={close}>
               <img src={img_close} alt='' />
             </button>
           </div>
