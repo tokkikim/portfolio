@@ -8,10 +8,11 @@ import dragBarOuter from '../../assets/images/icon/icon_dragbar_outer.svg';
 import ScrollDown from '../ScrollDown';
 import ImageHover from './ImageHover';
 import Marquee from '../Marquee';
+import DetailPage from './DetailPage';
 
 import { useState } from 'react';
 
-const Main = () => {
+const Main = ({ onClick, close }) => {
   const [images, setImages] = useState([
     { src: img1, isHovered: false },
     { src: img2, isHovered: false },
@@ -36,21 +37,22 @@ const Main = () => {
   };
 
   return (
-    <main className='flex flex-col  items-center h-full'>
-      <div className=' w-2/3 text-6xl mt-36 mb-7 p-2'>PROJECT</div>
-      <div className='flex gap-6 bg-white w-full px-6 py-12'>
-        {images.map((img, index) => (
-          <div
-            className='relative'
-            onMouseOver={handleMouseover(index)}
-            onMouseOut={handleMouseOut(index)}
-            key={index}
-          >
-            {img.isHovered && <ImageHover />}
-            <img src={img.src} alt='' />
-          </div>
-        ))}
+    <main className='flex flex-col  justify-center items-center h-full'>
+      <div className='grid grid-cols-12 px-6 w-full'>
+        <h1 className='col-span-3 content-center text-6xl p-2'>PROJECT</h1>
       </div>
+      {/* <div className='bg-white w-full h-[28em] px-6 py-12 overflow-hidden'> */}
+      <div className='bg-white px-6 py-12 overflow-hidden'>
+        <div className='relative w-full h-full flex gap-6 flex-nowrap box-content'>
+          {images.map((img, index) => (
+            <div className='group relative' key={index}>
+              <ImageHover onClick={onClick} close={close} />
+              <img src={img.src} alt='' />
+            </div>
+          ))}
+        </div>
+      </div>
+
       <div className='relative flex justify-center p-2'>
         <img src={dragBarOuter} alt='' />
         <img className='absolute' src={dragBarInner} alt='' />

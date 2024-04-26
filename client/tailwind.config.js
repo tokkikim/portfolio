@@ -8,7 +8,7 @@ module.exports = {
       },
       animation: {
         'ping-py': 'ping-py 2s infinite',
-        move: 'move 10s 1 forwards',
+        move: 'move 8s 1 forwards',
         loding: 'loding 2s 1',
       },
       keyframes: {

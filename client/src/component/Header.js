@@ -10,7 +10,7 @@ const Header = () => {
     setMenuClicked(!menuClicked);
   };
   return (
-    <header className='fixed top-0 left-0 right-0 z-50 px-10 py-5 tracking-tight text-white'>
+    <header className='absolute top-0 left-0 right-0 z-10 px-10 py-5 tracking-tight text-white'>
       <nav className='flex justify-between  items-center px-5 py-[5px]'>
         <Link to='/'>
           <div className='flex'>

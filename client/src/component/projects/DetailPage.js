@@ -1,15 +1,20 @@
 import detail_img from '../../assets/images/project/detail_img/detail_1.png';
 import button_left from '../../assets/images/icon/icon_button_left.svg';
 import button_right from '../../assets/images/icon/icon_button_right.svg';
-
-const DetailPage = () => {
+import img_close from '../../assets/images/icon/icon_close.svg';
+const DetailPage = ({ close }) => {
   return (
-    <div className='bg-black bg-opacity-70 flex justify-center items-center '>
+    <div className='absolute top-0 z-50 w-full bg-black bg-opacity-70 flex justify-center items-center '>
       <div className='bg-black w-1/2 border-x-white border-2 text-white flex flex-col overflow-hidden'>
         <div className='px-10 pt-10'>
-          <h2 className='py-2 text-2xl tracking-tight font-semibold'>
-            포트폴리오 프로젝트
-          </h2>
+          <div className='grid  grid-rows-2 grid-cols-12 justify-between'>
+            <h2 className=' row-start-2 col-start-1 col-end-5 py-2 text-2xl tracking-tight font-semibold'>
+              포트폴리오 프로젝트
+            </h2>
+            <button className='col-start-12' onClick={close}>
+              <img src={img_close} alt='' />
+            </button>
+          </div>
           <div className='flex text-lg'>
             <div className='pb-4 pr-5 '>
               <div className='py-1'>버전</div>
