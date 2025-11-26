@@ -1,0 +1,26 @@
+{
+  "hero": {
+    "title": "tokkikim's story",
+    "subtitle": "No1. Project Builder"
+  },
+  "projects": [
+    {
+      "id": 1,
+      "title": "AI Image Generator",
+      "description": "A deep learning model that generates art from text prompts.",
+      "link": "#"
+    },
+    {
+      "id": 2,
+      "title": "Smart Home Hub",
+      "description": "IoT dashboard for managing connected devices with voice control.",
+      "link": "#"
+    },
+    {
+      "id": 3,
+      "title": "Crypto Analytics",
+      "description": "Real-time visualization of cryptocurrency market trends.",
+      "link": "#"
+    }
+  ]
+}
