@@ -1,26 +1,91 @@
 {
   "hero": {
     "title": "tokkikim's story",
-    "subtitle": "No1. Project Builder"
+    "subtitle": "No2. Project Builder"
   },
   "projects": [
     {
       "id": 1,
-      "title": "AI Image Generator",
-      "description": "A deep learning model that generates art from text prompts.",
-      "link": "#"
+      "title": "tokkikim's photo",
+      "description": "네컷사진 인터넷 서비스",
+      "link": "https://kimtokki.netlify.app",
+      "backgroundImage": "/images/project1.jpeg"
     },
     {
       "id": 2,
-      "title": "Smart Home Hub",
-      "description": "IoT dashboard for managing connected devices with voice control.",
-      "link": "#"
+      "title": "tokkikim's Memories",
+      "description": "웨딩앨범 제작 서비스",
+      "link": "https://custom-mentor-08506258.figma.site/",
+      "backgroundImage": "/images/project2.jpeg"
     },
     {
       "id": 3,
-      "title": "Crypto Analytics",
-      "description": "Real-time visualization of cryptocurrency market trends.",
-      "link": "#"
+      "title": "우리 어디서 만나",
+      "description": "합리적인 만남 위치 제공 서비스",
+      "link": "https://www.figma.com/make/inPNSzmjbl8XC8V3I7iy2z/Mock-Data-Generation?node-id=0-1&t=woa0losY9qGFeYLH-1",
+      "backgroundImage": "/images/project3.jpeg"
+    }
+  ],
+  "career": [
+    {
+      "id": 1,
+      "year": "2012",
+      "role": "CJ 파워캐스트",
+      "title": "운영센터",
+      "details": [
+        "장애 CS",
+        "원격 A/S",
+        "A/S 업체관리",
+        "영상 인코딩",
+        "매체 모니터링",
+        "운영 PC 셋팅"
+      ]
+    },
+    {
+      "id": 2,
+      "year": "2015",
+      "role": "CJ 파워캐스트",
+      "title": "운영센터 파트장",
+      "details": [
+        "CGV 광고 운영시스템 구축",
+        "사고방지 프로그램 개발",
+        "업무 프로세스 개선"
+      ]
+    },
+    {
+      "id": 3,
+      "year": "2016",
+      "role": "CJ 파워캐스트",
+      "title": "매체 관리",
+      "details": [
+        "전광판 운영시스템 이중화",
+        "ERP/운영 통합 솔루션 개발",
+        "CJ광고솔루션 NDS3.0개발",
+        "운영시스템 호환성 해결",
+        "옥외자유표시구역 동기화 구현",
+        "옥외자유표시구역 행사 중계"
+      ]
+    },
+    {
+      "id": 1764395386890,
+      "year": "2020",
+      "role": "개인 사업",
+      "title": "쇼핑몰",
+      "details": [
+        "주식 트레이더",
+        "김토끼상점 스마트 스토어 운영",
+        "딜리버리 서비스"
+      ]
+    },
+    {
+      "id": 1764395557725,
+      "year": "2024 ~",
+      "role": "미러로이드",
+      "title": "QA",
+      "details": [
+        "자사 서비스 QA",
+        "프랜차이즈 사업 운영/관리"
+      ]
     }
   ]
 }

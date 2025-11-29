@@ -6,8 +6,8 @@ import BackgroundCanvas from "@/components/BackgroundCanvas";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Portfolio | AI & Future",
-  description: "A futuristic portfolio showcasing my work.",
+  title: "Tokkikim | AI & Future Portfolio",
+  description: "Explore the futuristic portfolio of Tokkikim, a project builder specializing in AI and modern web technologies.",
 };
 
 export default function RootLayout({
@@ -18,6 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
         <BackgroundCanvas />
         <main className="relative z-10">
           {children}
