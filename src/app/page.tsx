@@ -1,16 +1,27 @@
 import Link from "next/link";
-import fs from 'fs/promises';
-import path from 'path';
 import { cookies } from 'next/headers';
 import { FadeIn, StaggerContainer, StaggerItem } from '@/components/MotionWrapper';
 import ScrollOpacity from '@/components/ScrollOpacity';
 import HeroSection from '@/components/HeroSection';
 import CareerSection from '@/components/CareerSection';
+import ContactSection from '@/components/ContactSection';
+import { db } from '@/lib/firebase';
+import { doc, getDoc } from 'firebase/firestore';
+
+export const revalidate = 0; // Disable static caching for real-time updates
 
 async function getData() {
-  const filePath = path.join(process.cwd(), 'src', 'data', 'portfolio.json');
-  const jsonData = await fs.readFile(filePath, 'utf-8');
-  return JSON.parse(jsonData);
+  try {
+    const docRef = doc(db, "portfolio", "main");
+    const docSnap = await getDoc(docRef);
+    if (docSnap.exists()) {
+      return docSnap.data();
+    }
+    return { hero: {}, projects: [], career: [] };
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    return { hero: {}, projects: [], career: [] };
+  }
 }
 
 export default async function Home() {
@@ -115,6 +126,9 @@ export default async function Home() {
 
           {/* Career Section */}
           <CareerSection data={data.career} />
+
+          {/* Contact Section */}
+          <ContactSection />
 
         </div>
       </div>

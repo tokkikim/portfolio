@@ -86,6 +86,15 @@
         "자사 서비스 QA",
         "프랜차이즈 사업 운영/관리"
       ]
+    },
+    {
+      "id": 1764458851241,
+      "year": "2024",
+      "role": "New Role",
+      "title": "New Position",
+      "details": [
+        "Detail 1"
+      ]
     }
   ]
 }

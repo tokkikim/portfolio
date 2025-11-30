@@ -1,12 +1,13 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { CSSProperties } from 'react';
+import { CSSProperties, forwardRef } from 'react';
 
 interface MotionProps {
     children: React.ReactNode;
     className?: string;
     style?: CSSProperties;
+    [key: string]: any; // Allow additional props
 }
 
 interface FadeInProps extends MotionProps {
@@ -27,40 +28,52 @@ export const FadeIn = ({ children, delay = 0, className = '', style }: FadeInPro
     );
 };
 
-export const StaggerContainer = ({ children, className = '', style }: MotionProps) => {
-    return (
-        <motion.div
-            initial="hidden"
-            animate="show"
-            variants={{
-                hidden: { opacity: 0 },
-                show: {
-                    opacity: 1,
-                    transition: {
-                        staggerChildren: 0.2
+export const StaggerContainer = forwardRef<HTMLDivElement, MotionProps>(
+    ({ children, className = '', style, ...rest }, ref) => {
+        return (
+            <motion.div
+                ref={ref}
+                initial="hidden"
+                animate="show"
+                variants={{
+                    hidden: { opacity: 0 },
+                    show: {
+                        opacity: 1,
+                        transition: {
+                            staggerChildren: 0.2
+                        }
                     }
-                }
-            }}
-            className={className}
-            style={style}
-        >
-            {children}
-        </motion.div>
-    );
-};
+                }}
+                className={className}
+                style={style}
+                {...rest}
+            >
+                {children}
+            </motion.div>
+        );
+    }
+);
 
-export const StaggerItem = ({ children, className = '', style }: MotionProps) => {
-    return (
-        <motion.div
-            variants={{
-                hidden: { opacity: 0, y: 20 },
-                show: { opacity: 1, y: 0 }
-            }}
-            className={className}
-            style={style}
-        >
-            {children}
-        </motion.div>
-    );
-};
+StaggerContainer.displayName = 'StaggerContainer';
+
+export const StaggerItem = forwardRef<HTMLDivElement, MotionProps>(
+    ({ children, className = '', style, ...rest }, ref) => {
+        return (
+            <motion.div
+                ref={ref}
+                variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    show: { opacity: 1, y: 0 }
+                }}
+                className={className}
+                style={style}
+                {...rest}
+            >
+                {children}
+            </motion.div>
+        );
+    }
+);
+
+StaggerItem.displayName = 'StaggerItem';
 

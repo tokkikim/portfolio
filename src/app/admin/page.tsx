@@ -89,6 +89,7 @@ export default function AdminPage() {
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>
                         <h1 style={{ fontSize: '2rem' }}>Admin Dashboard</h1>
                         <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+                            <Link href="/admin/messages" style={{ background: 'transparent', border: '1px solid var(--secondary)', color: 'var(--secondary)', padding: '0.5rem 1rem', borderRadius: '0.5rem', textDecoration: 'none', display: 'inline-block' }}>📧 Messages</Link>
                             <button onClick={handleLogout} style={{ background: 'transparent', border: '1px solid var(--primary)', color: 'var(--primary)', padding: '0.5rem 1rem', borderRadius: '0.5rem', cursor: 'pointer' }}>Logout</button>
                             <Link href="/" style={{ color: 'var(--primary)' }}>Back to Home</Link>
                         </div>
