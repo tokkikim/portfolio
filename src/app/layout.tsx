@@ -6,8 +6,13 @@ import BackgroundCanvas from "@/components/BackgroundCanvas";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Tokkikim | AI & Future Portfolio",
+  title: "tokkikim's portfolio",
   description: "Explore the futuristic portfolio of Tokkikim, a project builder specializing in AI and modern web technologies.",
+  icons: {
+    icon: [
+      { url: '/images/logo/logo_black-removebg.png?v=2', href: '/images/logo/logo_black-removebg.png?v=2' },
+    ],
+  },
 };
 
 export default function RootLayout({

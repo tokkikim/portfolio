@@ -80,90 +80,90 @@ export default function CareerSection({ data }: CareerSectionProps) {
 
     return (
         <section className="section" style={{ position: 'relative', overflow: 'hidden' }}>
-            <div className="container">
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
 
-                    {/* Section Title */}
-                    <FadeIn>
-                        <div>
-                            <h2 className="career-title" style={{ fontSize: '2.5rem', marginBottom: '1.5rem' }}>
-                                Career
-                            </h2>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
 
-                            {/* Year Indicator */}
-                            <div className="year-indicator" style={{
-                                display: 'flex',
-                                justifyContent: 'flex-start',
-                                alignItems: 'center',
-                                gap: '0',
-                                marginBottom: '2.5rem',
-                                position: 'relative'
-                            }}>
-                                {data.map((item, index) => (
-                                    <div key={item.id} style={{ display: 'flex', alignItems: 'center' }}>
-                                        {/* Year Button */}
-                                        <button
-                                            onClick={() => scrollToYear(item.year)}
-                                            style={{
-                                                background: activeYears.has(item.year)
-                                                    ? '#ffffff'
-                                                    : 'rgba(255, 255, 255, 0.05)',
-                                                border: '2px solid',
-                                                borderColor: activeYears.has(item.year) ? '#000' : 'rgba(255, 255, 255, 0.2)',
-                                                borderRadius: '12px',
-                                                padding: '0.6rem 1.2rem',
-                                                fontSize: '0.9rem',
-                                                fontWeight: '600',
-                                                color: activeYears.has(item.year) ? '#000' : '#fff',
-                                                cursor: 'pointer',
-                                                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-                                                boxShadow: activeYears.has(item.year)
-                                                    ? '0 4px 12px rgba(0, 0, 0, 0.15), 0 0 20px rgba(255, 255, 255, 0.2)'
-                                                    : '0 2px 8px rgba(0, 0, 0, 0.1)',
-                                                transform: activeYears.has(item.year) ? 'scale(1.05)' : 'scale(1)',
-                                                backdropFilter: 'blur(10px)',
-                                                letterSpacing: '0.5px',
-                                                position: 'relative',
-                                                zIndex: activeYears.has(item.year) ? 2 : 1,
-                                                outline: 'none'
-                                            }}
-                                            onMouseEnter={(e) => {
-                                                if (!activeYears.has(item.year)) {
-                                                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.4)';
-                                                    e.currentTarget.style.transform = 'scale(1.05)';
-                                                    e.currentTarget.style.background = 'rgba(255, 255, 255, 0.1)';
-                                                }
-                                            }}
-                                            onMouseLeave={(e) => {
-                                                if (!activeYears.has(item.year)) {
-                                                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)';
-                                                    e.currentTarget.style.transform = 'scale(1)';
-                                                    e.currentTarget.style.background = 'rgba(255, 255, 255, 0.05)';
-                                                }
-                                            }}
-                                        >
-                                            {item.year}
-                                        </button>
+                {/* Section Title */}
+                <FadeIn>
+                    <div>
+                        <h2 className="career-title" style={{ fontSize: '2.5rem', marginBottom: '1.5rem', textAlign: 'left' }}>
+                            Career
+                        </h2>
 
-                                        {/* Connecting Line */}
-                                        {index < data.length - 1 && (
-                                            <div className="connecting-line" style={{
-                                                width: '32px',
-                                                height: '2px',
-                                                background: 'linear-gradient(90deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1))',
-                                                margin: '0',
-                                                flexShrink: 0
-                                            }}></div>
-                                        )}
-                                    </div>
-                                ))}
-                            </div>
+                        {/* Year Indicator */}
+                        <div className="year-indicator" style={{
+                            display: 'flex',
+                            justifyContent: 'flex-start',
+                            alignItems: 'center',
+                            gap: '0',
+                            marginBottom: '2.5rem',
+                            position: 'relative'
+                        }}>
+                            {data.map((item, index) => (
+                                <div key={item.id} style={{ display: 'flex', alignItems: 'center' }}>
+                                    {/* Year Button */}
+                                    <button
+                                        onClick={() => scrollToYear(item.year)}
+                                        style={{
+                                            background: activeYears.has(item.year)
+                                                ? '#ffffff'
+                                                : 'rgba(255, 255, 255, 0.05)',
+                                            border: '2px solid',
+                                            borderColor: activeYears.has(item.year) ? '#000' : 'rgba(255, 255, 255, 0.2)',
+                                            borderRadius: '12px',
+                                            padding: '0.6rem 1.2rem',
+                                            fontSize: '0.9rem',
+                                            fontWeight: '600',
+                                            color: activeYears.has(item.year) ? '#000' : '#fff',
+                                            cursor: 'pointer',
+                                            transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                                            boxShadow: activeYears.has(item.year)
+                                                ? '0 4px 12px rgba(0, 0, 0, 0.15), 0 0 20px rgba(255, 255, 255, 0.2)'
+                                                : '0 2px 8px rgba(0, 0, 0, 0.1)',
+                                            transform: activeYears.has(item.year) ? 'scale(1.05)' : 'scale(1)',
+                                            backdropFilter: 'blur(10px)',
+                                            letterSpacing: '0.5px',
+                                            position: 'relative',
+                                            zIndex: activeYears.has(item.year) ? 2 : 1,
+                                            outline: 'none'
+                                        }}
+                                        onMouseEnter={(e) => {
+                                            if (!activeYears.has(item.year)) {
+                                                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.4)';
+                                                e.currentTarget.style.transform = 'scale(1.05)';
+                                                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.1)';
+                                            }
+                                        }}
+                                        onMouseLeave={(e) => {
+                                            if (!activeYears.has(item.year)) {
+                                                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+                                                e.currentTarget.style.transform = 'scale(1)';
+                                                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.05)';
+                                            }
+                                        }}
+                                    >
+                                        {item.year}
+                                    </button>
+
+                                    {/* Connecting Line */}
+                                    {index < data.length - 1 && (
+                                        <div className="connecting-line" style={{
+                                            width: '32px',
+                                            height: '2px',
+                                            background: 'linear-gradient(90deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1))',
+                                            margin: '0',
+                                            flexShrink: 0
+                                        }}></div>
+                                    )}
+                                </div>
+                            ))}
                         </div>
-                    </FadeIn>
+                    </div>
+                </FadeIn>
 
-                    {/* Timeline Structure (Horizontal Scroll Layout) */}
-                    <div style={{ position: 'relative' }}>
-                        <style jsx global>{`
+                {/* Timeline Structure (Horizontal Scroll Layout) */}
+                <div style={{ position: 'relative' }}>
+                    <style jsx global>{`
                             /* Custom Scrollbar */
                             .career-list::-webkit-scrollbar {
                                 height: 8px;
@@ -292,208 +292,208 @@ export default function CareerSection({ data }: CareerSectionProps) {
                             }
                         `}</style>
 
-                        {/* Scroll Container */}
-                        <StaggerContainer
-                            ref={scrollContainerRef}
-                            className="career-list"
-                            style={{
-                                display: 'flex',
-                                gap: '0',
-                                overflowX: 'auto',
-                                paddingBottom: '2rem',
-                                scrollSnapType: 'x mandatory',
-                                scrollBehavior: 'smooth',
-                                WebkitOverflowScrolling: 'touch',
-                                scrollbarWidth: 'thin',
-                                scrollbarColor: '#ffffff rgba(255, 255, 255, 0.05)'
-                            }}
-                        >
-                            {data.map((item, index) => (
-                                <StaggerItem
-                                    key={item.id}
-                                    ref={(el) => {
-                                        if (el) itemRefs.current.set(item.year, el);
-                                    }}
-                                    data-year={item.year}
-                                    className="career-item"
-                                    style={{
-                                        minWidth: '320px',
-                                        display: 'flex',
-                                        flexDirection: 'column',
-                                        position: 'relative',
-                                        scrollSnapAlign: 'start',
-                                        paddingRight: '0'
-                                    }}
-                                >
+                    {/* Scroll Container */}
+                    <StaggerContainer
+                        ref={scrollContainerRef}
+                        className="career-list"
+                        style={{
+                            display: 'flex',
+                            gap: '0',
+                            overflowX: 'auto',
+                            paddingBottom: '2rem',
+                            scrollSnapType: 'x mandatory',
+                            scrollBehavior: 'smooth',
+                            WebkitOverflowScrolling: 'touch',
+                            scrollbarWidth: 'thin',
+                            scrollbarColor: '#ffffff rgba(255, 255, 255, 0.05)'
+                        }}
+                    >
+                        {data.map((item, index) => (
+                            <StaggerItem
+                                key={item.id}
+                                ref={(el) => {
+                                    if (el) itemRefs.current.set(item.year, el);
+                                }}
+                                data-year={item.year}
+                                className="career-item"
+                                style={{
+                                    minWidth: '320px',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    position: 'relative',
+                                    scrollSnapAlign: 'start',
+                                    paddingRight: '0'
+                                }}
+                            >
 
-                                    {/* 1. Top: Year & Role */}
-                                    <div className="career-year-role" style={{
-                                        marginBottom: '1rem',
-                                        textAlign: 'center'
+                                {/* 1. Top: Year & Role */}
+                                <div className="career-year-role" style={{
+                                    marginBottom: '1rem',
+                                    textAlign: 'center'
+                                }}>
+                                    <div style={{
+                                        fontSize: '1.5rem',
+                                        fontWeight: 'bold',
+                                        color: '#fff',
+                                        lineHeight: 1,
+                                        textShadow: activeYears.has(item.year)
+                                            ? '0 0 20px rgba(255, 255, 255, 0.8)'
+                                            : 'none',
+                                        transition: 'all 0.3s ease'
                                     }}>
-                                        <div style={{
-                                            fontSize: '1.5rem',
-                                            fontWeight: 'bold',
-                                            color: '#fff',
-                                            lineHeight: 1,
-                                            textShadow: activeYears.has(item.year)
-                                                ? '0 0 20px rgba(255, 255, 255, 0.8)'
-                                                : 'none',
-                                            transition: 'all 0.3s ease'
-                                        }}>
-                                            {item.year}
-                                        </div>
-                                        <div style={{
-                                            fontSize: '0.85rem',
-                                            color: '#aaa',
-                                            marginTop: '0.5rem',
-                                            lineHeight: 1.4
-                                        }}>
-                                            {item.role}
-                                        </div>
+                                        {item.year}
                                     </div>
-
-                                    {/* 2. Middle: Timeline Line & Dot */}
-                                    <div className="timeline-dot-container" style={{
-                                        position: 'relative',
-                                        height: '20px',
-                                        marginBottom: '1.5rem',
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'center'
+                                    <div style={{
+                                        fontSize: '0.85rem',
+                                        color: '#aaa',
+                                        marginTop: '0.5rem',
+                                        lineHeight: 1.4
                                     }}>
-                                        {/* Horizontal Line */}
-                                        <div style={{
-                                            position: 'absolute',
-                                            top: '50%',
-                                            height: '1px',
-                                            background: 'rgba(255, 255, 255, 0.3)',
-                                            zIndex: 0,
-                                            left: index === 0 ? '50%' : '0',
-                                            width: index === 0
-                                                ? '50%'
-                                                : (index === data.length - 1 ? '50%' : '100%'),
-                                            transition: 'all 0.3s ease'
-                                        }}></div>
+                                        {item.role}
+                                    </div>
+                                </div>
 
-                                        {/* Dot */}
-                                        <div style={{
-                                            width: '16px',
-                                            height: '16px',
-                                            borderRadius: '50%',
+                                {/* 2. Middle: Timeline Line & Dot */}
+                                <div className="timeline-dot-container" style={{
+                                    position: 'relative',
+                                    height: '20px',
+                                    marginBottom: '1.5rem',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center'
+                                }}>
+                                    {/* Horizontal Line */}
+                                    <div style={{
+                                        position: 'absolute',
+                                        top: '50%',
+                                        height: '1px',
+                                        background: 'rgba(255, 255, 255, 0.3)',
+                                        zIndex: 0,
+                                        left: index === 0 ? '50%' : '0',
+                                        width: index === 0
+                                            ? '50%'
+                                            : (index === data.length - 1 ? '50%' : '100%'),
+                                        transition: 'all 0.3s ease'
+                                    }}></div>
+
+                                    {/* Dot */}
+                                    <div style={{
+                                        width: '16px',
+                                        height: '16px',
+                                        borderRadius: '50%',
+                                        background: activeYears.has(item.year)
+                                            ? '#ffffff'
+                                            : '#fff',
+                                        border: '3px solid',
+                                        borderColor: activeYears.has(item.year) ? '#000' : '#000',
+                                        boxShadow: activeYears.has(item.year)
+                                            ? '0 0 20px rgba(255, 255, 255, 0.8), 0 0 40px rgba(255, 255, 255, 0.4)'
+                                            : '0 0 10px rgba(255,255,255,0.5)',
+                                        zIndex: 1,
+                                        transition: 'all 0.3s ease',
+                                        transform: activeYears.has(item.year) ? 'scale(1.2)' : 'scale(1)'
+                                    }}></div>
+                                </div>
+
+                                {/* 3. Bottom: Card */}
+                                <div className="career-card-wrapper" style={{
+                                    flex: 1,
+                                    paddingRight: '2rem',
+                                    paddingLeft: '1rem',
+                                    opacity: activeYears.has(item.year) ? 1 : 0.4,
+                                    filter: activeYears.has(item.year) ? 'brightness(1)' : 'brightness(0.6)',
+                                    transition: 'all 0.5s ease'
+                                }}>
+                                    <div
+                                        className={`career-card ${expandedItems.has(item.id) ? 'expanded' : ''}`}
+                                        style={{
+                                            border: '1px solid',
+                                            borderColor: activeYears.has(item.year)
+                                                ? 'rgba(255, 255, 255, 0.3)'
+                                                : 'var(--glass-border)',
+                                            borderRadius: '0.5rem',
+                                            overflow: 'hidden',
                                             background: activeYears.has(item.year)
-                                                ? '#ffffff'
-                                                : '#fff',
-                                            border: '3px solid',
-                                            borderColor: activeYears.has(item.year) ? '#000' : '#000',
+                                                ? 'rgba(30, 30, 30, 0.8)'
+                                                : 'rgba(20, 20, 20, 0.6)',
+                                            backdropFilter: 'blur(10px)',
+                                            height: '100%',
+                                            display: 'flex',
+                                            flexDirection: 'column',
+                                            transition: 'all 0.5s ease',
                                             boxShadow: activeYears.has(item.year)
-                                                ? '0 0 20px rgba(255, 255, 255, 0.8), 0 0 40px rgba(255, 255, 255, 0.4)'
-                                                : '0 0 10px rgba(255,255,255,0.5)',
-                                            zIndex: 1,
-                                            transition: 'all 0.3s ease',
-                                            transform: activeYears.has(item.year) ? 'scale(1.2)' : 'scale(1)'
-                                        }}></div>
-                                    </div>
-
-                                    {/* 3. Bottom: Card */}
-                                    <div className="career-card-wrapper" style={{
-                                        flex: 1,
-                                        paddingRight: '2rem',
-                                        paddingLeft: '1rem',
-                                        opacity: activeYears.has(item.year) ? 1 : 0.4,
-                                        filter: activeYears.has(item.year) ? 'brightness(1)' : 'brightness(0.6)',
-                                        transition: 'all 0.5s ease'
-                                    }}>
+                                                ? '0 8px 32px rgba(255, 255, 255, 0.1)'
+                                                : 'none'
+                                        }}
+                                    >
+                                        {/* Card Header */}
                                         <div
-                                            className={`career-card ${expandedItems.has(item.id) ? 'expanded' : ''}`}
+                                            className="career-card-header"
+                                            onClick={() => toggleItem(item.id)}
                                             style={{
-                                                border: '1px solid',
-                                                borderColor: activeYears.has(item.year)
-                                                    ? 'rgba(255, 255, 255, 0.3)'
-                                                    : 'var(--glass-border)',
-                                                borderRadius: '0.5rem',
-                                                overflow: 'hidden',
-                                                background: activeYears.has(item.year)
-                                                    ? 'rgba(30, 30, 30, 0.8)'
-                                                    : 'rgba(20, 20, 20, 0.6)',
-                                                backdropFilter: 'blur(10px)',
-                                                height: '100%',
-                                                display: 'flex',
-                                                flexDirection: 'column',
-                                                transition: 'all 0.5s ease',
-                                                boxShadow: activeYears.has(item.year)
-                                                    ? '0 8px 32px rgba(255, 255, 255, 0.1)'
-                                                    : 'none'
+                                                background: 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)',
+                                                padding: '1rem 1.5rem',
+                                                fontWeight: 'bold',
+                                                fontSize: '1.2rem',
+                                                color: 'white',
+                                                textAlign: 'center',
+                                                transition: 'all 0.3s ease'
                                             }}
                                         >
-                                            {/* Card Header */}
-                                            <div
-                                                className="career-card-header"
-                                                onClick={() => toggleItem(item.id)}
-                                                style={{
-                                                    background: 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)',
-                                                    padding: '1rem 1.5rem',
-                                                    fontWeight: 'bold',
-                                                    fontSize: '1.2rem',
-                                                    color: 'white',
-                                                    textAlign: 'center',
-                                                    transition: 'all 0.3s ease'
-                                                }}
-                                            >
-                                                <div className="header-title">
-                                                    {item.title}
-                                                </div>
-                                                <div className="header-meta" style={{
-                                                    display: 'none',
-                                                    fontSize: '0.85rem',
-                                                    fontWeight: 'normal',
-                                                    color: '#aaa',
-                                                    marginTop: '0.5rem'
-                                                }}>
-                                                    {item.year} | {item.role}
-                                                </div>
+                                            <div className="header-title">
+                                                {item.title}
                                             </div>
-
-                                            {/* Card Body */}
-                                            <div className="career-card-body" style={{ padding: '1.5rem', flex: 1 }}>
-                                                <ul style={{
-                                                    listStyle: 'none',
-                                                    padding: 0,
-                                                    margin: 0,
-                                                    display: 'flex',
-                                                    flexDirection: 'column',
-                                                    gap: '0.8rem'
-                                                }}>
-                                                    {item.details.map((detail, i) => (
-                                                        <li key={i} style={{
-                                                            color: '#ddd',
-                                                            fontSize: '0.95rem',
-                                                            lineHeight: 1.5,
-                                                            display: 'flex',
-                                                            alignItems: 'start',
-                                                            gap: '0.5rem'
-                                                        }}>
-                                                            <span style={{
-                                                                color: activeYears.has(item.year) ? '#ffffff' : '#4364F7',
-                                                                marginTop: '4px',
-                                                                fontSize: '0.8rem',
-                                                                transition: 'all 0.3s ease'
-                                                            }}>●</span>
-                                                            {detail}
-                                                        </li>
-                                                    ))}
-                                                </ul>
+                                            <div className="header-meta" style={{
+                                                display: 'none',
+                                                fontSize: '0.85rem',
+                                                fontWeight: 'normal',
+                                                color: '#aaa',
+                                                marginTop: '0.5rem'
+                                            }}>
+                                                {item.year} | {item.role}
                                             </div>
                                         </div>
+
+                                        {/* Card Body */}
+                                        <div className="career-card-body" style={{ padding: '1.5rem', flex: 1 }}>
+                                            <ul style={{
+                                                listStyle: 'none',
+                                                padding: 0,
+                                                margin: 0,
+                                                display: 'flex',
+                                                flexDirection: 'column',
+                                                gap: '0.8rem'
+                                            }}>
+                                                {item.details.map((detail, i) => (
+                                                    <li key={i} style={{
+                                                        color: '#ddd',
+                                                        fontSize: '0.95rem',
+                                                        lineHeight: 1.5,
+                                                        display: 'flex',
+                                                        alignItems: 'start',
+                                                        gap: '0.5rem'
+                                                    }}>
+                                                        <span style={{
+                                                            color: activeYears.has(item.year) ? '#ffffff' : '#4364F7',
+                                                            marginTop: '4px',
+                                                            fontSize: '0.8rem',
+                                                            transition: 'all 0.3s ease'
+                                                        }}>●</span>
+                                                        {detail}
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
                                     </div>
+                                </div>
 
-                                </StaggerItem>
-                            ))}
-                        </StaggerContainer>
-                    </div>
-
+                            </StaggerItem>
+                        ))}
+                    </StaggerContainer>
                 </div>
+
             </div>
+
         </section>
     );
 }

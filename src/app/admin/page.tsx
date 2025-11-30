@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { FadeIn } from '@/components/MotionWrapper';
+import { storage } from '@/lib/firebase';
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 export default function AdminPage() {
     const router = useRouter();
@@ -161,13 +163,32 @@ export default function AdminPage() {
                                         onChange={(e) => handleProjectChange(index, 'link', e.target.value)}
                                         style={{ padding: '0.5rem', background: 'rgba(255,255,255,0.1)', border: 'none', color: 'var(--primary)' }}
                                     />
-                                    <input
-                                        type="text"
-                                        placeholder="Background Image URL (Optional)"
-                                        value={project.backgroundImage || ''}
-                                        onChange={(e) => handleProjectChange(index, 'backgroundImage', e.target.value)}
-                                        style={{ padding: '0.5rem', background: 'rgba(255,255,255,0.1)', border: 'none', color: '#aaa' }}
-                                    />
+
+                                    <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
+                                        <input
+                                            type="file"
+                                            accept="image/*"
+                                            onChange={async (e) => {
+                                                const file = e.target.files?.[0];
+                                                if (!file) return;
+
+                                                try {
+                                                    const storageRef = ref(storage, `projects/${project.id}/${file.name}`);
+                                                    const snapshot = await uploadBytes(storageRef, file);
+                                                    const downloadURL = await getDownloadURL(snapshot.ref);
+                                                    handleProjectChange(index, 'backgroundImage', downloadURL);
+                                                    alert('Image uploaded successfully!');
+                                                } catch (error) {
+                                                    console.error("Error uploading image: ", error);
+                                                    alert('Failed to upload image.');
+                                                }
+                                            }}
+                                            style={{ color: 'white' }}
+                                        />
+                                        {project.backgroundImage && (
+                                            <img src={project.backgroundImage} alt="Preview" style={{ width: '50px', height: '50px', objectFit: 'cover', borderRadius: '4px' }} />
+                                        )}
+                                    </div>
                                 </div>
                             </div>
                         ))}
